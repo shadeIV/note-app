@@ -14,13 +14,14 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    gap: 10px;
     width: 250px;
     height: 570px;
     background-color: #111111;
     padding-top: 20px;
 }
 
-.menu-create-button{
+.menu-create-button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -37,4 +38,58 @@ body {
 .menu-create-button-p {
     font-size: 18px;
     font-weight: 500;
+}
+
+.menu-hr {
+    width: 200px;
+    height: 1px;
+    background-color: rgb(161, 161, 161);
+}
+
+.notes-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    height: 500px;
+    width: 200px;
+    padding-top: 5px;
+    overflow-y: hidden;
+}
+
+.notes-section:hover {
+    overflow-y: scroll;
+}
+
+.notes-section::-webkit-scrollbar {
+    width: 10px;
+}
+
+.notes-section::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.notes-section::-webkit-scrollbar-thumb {
+    background: #202020;
+}
+
+.note-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 185px;
+    min-height: 25px;
+    height: 25px;
+    padding: 0px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #141414;
+    border: solid 1px rgb(161, 161, 161);
+}
+
+.note-item-name {
+    color: rgb(161, 161, 161);
+    font-size: 14px;
 }
