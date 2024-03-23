@@ -1,0 +1,15 @@
+{
+  "name": "note-app",
+  "version": "1.0.0",
+  "main": "./scripts/app.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "shade",
+  "license": "ISC",
+  "keywords": [],
+  "description": "Basic note app made with html, css, node.js and electron.js",
+  "devDependencies": {
+    "electron": "^29.1.5"
+  }
+}
