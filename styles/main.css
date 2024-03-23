@@ -19,6 +19,16 @@ body {
     height: 570px;
     background-color: #111111;
     padding-top: 20px;
+    user-select: none;
+}
+
+.header-p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: left;
+    width: 200px;
+    color: white;
+    font-size: 35px;
+    font-weight: 500;
 }
 
 .menu-create-button {
@@ -33,6 +43,10 @@ body {
     cursor: pointer;
     color: white;
     background-color: #46e241;
+}
+
+.menu-create-button:hover {
+    background-color: #4de648;
 }
 
 .menu-create-button-p {
@@ -87,6 +101,10 @@ body {
     border-radius: 5px;
     background-color: #141414;
     border: solid 1px rgb(161, 161, 161);
+}
+
+.note-item:hover {
+    background-color: #202020;
 }
 
 .note-item-name {
