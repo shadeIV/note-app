@@ -12,9 +12,29 @@ body {
 .menu {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
     width: 250px;
     height: 570px;
     background-color: #111111;
+    padding-top: 20px;
+}
+
+.menu-create-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    height: 30px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: #46e241;
+}
+
+.menu-create-button-p {
+    font-size: 18px;
+    font-weight: 500;
 }
