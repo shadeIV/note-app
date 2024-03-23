@@ -1,0 +1,20 @@
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 870px;
+    height: 550px;
+    overflow: hidden;
+    background-color: #141414;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 250px;
+    height: 570px;
+    background-color: #111111;
+}
