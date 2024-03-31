@@ -131,3 +131,25 @@ body {
     color: white;
     background-color: transparent;
 }
+
+.description-input {
+    resize: none;
+    width: 600px;
+    height: 480px;
+    padding-top: 10px;
+    color: white;
+    font-size: 20px;
+    background-color: transparent;
+}
+
+.description-input::-webkit-scrollbar {
+    width: 10px;
+}
+
+.description-input::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.description-input::-webkit-scrollbar-thumb {
+    background: #222222;
+}
