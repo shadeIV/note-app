@@ -16,6 +16,7 @@ body {
     align-items: center;
     gap: 10px;
     width: 250px;
+    min-width: 250px;
     height: 570px;
     background-color: #111111;
     padding-top: 20px;
@@ -120,7 +121,15 @@ body {
     flex: 1;
     height: 570px;
     padding: 20px 0px 0px 20px;
-    ;
+}
+
+.note-top { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 650px;
+    background-color: transparent;
 }
 
 .title-input {
@@ -132,9 +141,29 @@ body {
     background-color: transparent;
 }
 
+.save-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: #111111;
+}
+
+.save-button:hover{
+    background-color: #202020;
+}
+
+.save-icon {
+    color: rgb(161, 161, 161);
+    font-size: 100px;
+}
+
 .description-input {
     resize: none;
-    width: 600px;
+    width: 650px;
     height: 480px;
     padding-top: 10px;
     color: white;
