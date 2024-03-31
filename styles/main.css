@@ -111,3 +111,23 @@ body {
     color: rgb(161, 161, 161);
     font-size: 14px;
 }
+
+.note-review {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 1;
+    height: 570px;
+    padding: 20px 0px 0px 20px;
+    ;
+}
+
+.title-input {
+    width: 600px;
+    height: 60px;
+    font-size: 50px;
+    font-weight: 300;
+    color: white;
+    background-color: transparent;
+}
