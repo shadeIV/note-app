@@ -43,6 +43,8 @@ document.querySelector(".menu-create-button").addEventListener("click", () => {
 
 // Save Button
 document.querySelector(".save-button").addEventListener("click", () => {
+    document.title = "Note App | Saved";
+
     let noteTitle = document.querySelector(".title-input").value;
     let noteDescription = document.querySelector(".description-input").value;
 
@@ -90,6 +92,14 @@ function renderButtons() {
         });
     });
 };
+
+// Inputs on Change
+document.querySelector(".title-input").addEventListener("keydown", () => {
+    document.title = "Note App | Unsaved";
+});
+document.querySelector(".description-input").addEventListener("keydown", () => {
+    document.title = "Note App | Unsaved";
+});
 
 // Startup Code
 renderNotes();
