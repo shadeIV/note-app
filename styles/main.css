@@ -161,10 +161,15 @@ body {
     font-size: 100px;
 }
 
+.date-p{
+    color: rgb(161, 161, 161);
+    font-size: 20px;
+}
+
 .description-input {
     resize: none;
     width: 650px;
-    height: 480px;
+    height: 455px;
     padding-top: 10px;
     color: white;
     font-size: 20px;
