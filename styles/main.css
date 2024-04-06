@@ -133,7 +133,7 @@ body {
 }
 
 .title-input {
-    width: 600px;
+    width: 580px;
     height: 60px;
     font-size: 50px;
     font-weight: 300;
@@ -141,7 +141,7 @@ body {
     background-color: transparent;
 }
 
-.save-button {
+.save-button, .delete-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,11 +152,11 @@ body {
     background-color: #111111;
 }
 
-.save-button:hover{
+.save-button:hover, .delete-button:hover{
     background-color: #202020;
 }
 
-.save-icon {
+.save-icon, .delete-icon {
     color: rgb(161, 161, 161);
     font-size: 100px;
 }
