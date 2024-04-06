@@ -14,7 +14,7 @@ function generateRandomId() {
         id += characters.charAt(Math.floor(Math.random() * characters.length));
     }
     return id;
-}
+};
 
 // Rendering Notes
 function renderNotes() {
@@ -46,6 +46,10 @@ document.querySelector(".save-button").addEventListener("click", () => {
     document.title = "Note App | Saved";
 
     let noteTitle = document.querySelector(".title-input").value;
+    if (!noteTitle){
+        noteTitle = "Untitled";
+    };
+
     let noteDescription = document.querySelector(".description-input").value;
 
     if (mode === "view") {
