@@ -16,6 +16,19 @@ function generateRandomId() {
     return id;
 };
 
+// Getting Date
+function getDate() {
+  var date = new Date();
+
+  var day = date.getDate();
+  var month = date.getMonth() + 1;
+  var year = date.getFullYear();
+
+  var currentDate = `${day}/${month}/${year}`;
+
+  return currentDate;
+};
+
 // Rendering Notes
 function renderNotes() {
     const notesDiv = window.top.document.querySelector(".notes-section");
@@ -41,6 +54,7 @@ document.querySelector(".menu-create-button").addEventListener("click", () => {
     mode = "create";
     document.querySelector(".title-input").value = "";
     document.querySelector(".description-input").value = "";
+    document.querySelector(".date-p").innerHTML = getDate();
 });
 
 // Save Button
@@ -51,6 +65,8 @@ document.querySelector(".save-button").addEventListener("click", () => {
     
     if (noteTitle || noteDescription) {
         
+        let date = getDate();
+
         document.title = "Note App | Saved";
 
         if (!noteTitle) {
@@ -61,7 +77,7 @@ document.querySelector(".save-button").addEventListener("click", () => {
             getStorage();
             storage.forEach((note, noteIndex) => {
                 if (note.id == currentNoteId) {
-                    storage[noteIndex] = { title: noteTitle, description: noteDescription, id: note.id };
+                    storage[noteIndex] = { title: noteTitle, description: noteDescription, id: note.id, date: note.date };
                     localStorage.setItem("storage", JSON.stringify(storage));
                     renderNotes();
                     renderButtons();
@@ -71,13 +87,14 @@ document.querySelector(".save-button").addEventListener("click", () => {
 
         else if (mode === "create") {
             let newId = generateRandomId();
-            let newNote = { title: noteTitle, description: noteDescription, id: newId };
+            let newNote = { title: noteTitle, description: noteDescription, id: newId, date: date };
             saveToStorage(newNote);
             mode = "view";
             currentNoteId = newId;
             renderNotes();
             renderButtons();
         };
+        
     };
 });
 
@@ -98,13 +115,17 @@ document.querySelector(".delete-button").addEventListener("click", () => {
                 mode = "create";
                 document.querySelector(".title-input").value = "";
                 document.querySelector(".description-input").value = "";
+                document.querySelector(".date-p").innerHTML = getDate();
             };
         });
     }
+
     else if (mode === "create") {
         document.querySelector(".title-input").value = "";
         document.querySelector(".description-input").value = "";
+        document.querySelector(".date-p").innerHTML = getDate();
     };
+
 });
 
 // Rendering Buttons
@@ -122,6 +143,7 @@ function renderButtons() {
                     document.title = "Note App | View Note";
                     document.querySelector(".title-input").value = note.title;
                     document.querySelector(".description-input").value = note.description;
+                    document.querySelector(".date-p").innerHTML = note.date; 
                     currentNoteId = note.id;
                 };
             });
@@ -141,3 +163,5 @@ document.querySelector(".description-input").addEventListener("keydown", () => {
 // Startup Code
 renderNotes();
 renderButtons();
+
+document.querySelector(".date-p").innerHTML = getDate();
