@@ -36,6 +36,8 @@ function renderNotes() {
 
 // Create Button
 document.querySelector(".menu-create-button").addEventListener("click", () => {
+    document.title = "Note App | Create Note";
+    currentNoteId = "";
     mode = "create";
     document.querySelector(".title-input").value = "";
     document.querySelector(".description-input").value = "";
@@ -76,6 +78,28 @@ document.querySelector(".save-button").addEventListener("click", () => {
 
 });
 
+// Delete Button
+document.querySelector(".delete-button").addEventListener("click", () => {
+    if (mode === "view") {
+        getStorage();
+        storage.forEach((note, noteIndex) => {
+            if (note.id === currentNoteId) {
+                storage.splice(noteIndex, 1);
+                localStorage.setItem("storage", JSON.stringify(storage));
+
+                renderNotes();
+                renderButtons();
+
+                document.title = "Note App | Create Note"
+                currentNoteId = "";
+                mode = "create";
+                document.querySelector(".title-input").value = "";
+                document.querySelector(".description-input").value = "";
+            };
+        });
+    };
+});
+
 // Rendering Buttons
 function renderButtons() {
     let noteButtons = document.querySelectorAll(".note-item");
@@ -88,10 +112,10 @@ function renderButtons() {
             getStorage();
             storage.forEach((note) => {
                 if (note.id === noteId) {
+                    document.title = "Note App | View Note";
                     document.querySelector(".title-input").value = note.title;
                     document.querySelector(".description-input").value = note.description;
                     currentNoteId = note.id;
-                    console.log(currentNoteId);
                 };
             });
 
