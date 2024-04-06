@@ -97,6 +97,10 @@ document.querySelector(".delete-button").addEventListener("click", () => {
                 document.querySelector(".description-input").value = "";
             };
         });
+    }
+    else if (mode === "create") {
+        document.querySelector(".title-input").value = "";
+        document.querySelector(".description-input").value = "";
     };
 });
 
