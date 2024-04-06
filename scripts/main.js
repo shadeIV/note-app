@@ -45,37 +45,40 @@ document.querySelector(".menu-create-button").addEventListener("click", () => {
 
 // Save Button
 document.querySelector(".save-button").addEventListener("click", () => {
-    document.title = "Note App | Saved";
-
+    
     let noteTitle = document.querySelector(".title-input").value;
-    if (!noteTitle) {
-        noteTitle = "Untitled";
-    };
-
     let noteDescription = document.querySelector(".description-input").value;
+    
+    if (noteTitle || noteDescription) {
+        
+        document.title = "Note App | Saved";
 
-    if (mode === "view") {
-        getStorage();
-        storage.forEach((note, noteIndex) => {
-            if (note.id == currentNoteId) {
-                storage[noteIndex] = { title: noteTitle, description: noteDescription, id: note.id };
-                localStorage.setItem("storage", JSON.stringify(storage));
-                renderNotes();
-                renderButtons();
-            };
-        });
-    }
+        if (!noteTitle) {
+            noteTitle = "Untitled";
+        };
 
-    else if (mode === "create") {
-        let newId = generateRandomId();
-        let newNote = { title: noteTitle, description: noteDescription, id: newId };
-        saveToStorage(newNote);
-        mode = "view";
-        currentNoteId = newId;
-        renderNotes();
-        renderButtons();
+        if (mode === "view") {
+            getStorage();
+            storage.forEach((note, noteIndex) => {
+                if (note.id == currentNoteId) {
+                    storage[noteIndex] = { title: noteTitle, description: noteDescription, id: note.id };
+                    localStorage.setItem("storage", JSON.stringify(storage));
+                    renderNotes();
+                    renderButtons();
+                };
+            });
+        }
+
+        else if (mode === "create") {
+            let newId = generateRandomId();
+            let newNote = { title: noteTitle, description: noteDescription, id: newId };
+            saveToStorage(newNote);
+            mode = "view";
+            currentNoteId = newId;
+            renderNotes();
+            renderButtons();
+        };
     };
-
 });
 
 // Delete Button
