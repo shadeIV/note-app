@@ -46,7 +46,7 @@ document.querySelector(".save-button").addEventListener("click", () => {
     document.title = "Note App | Saved";
 
     let noteTitle = document.querySelector(".title-input").value;
-    if (!noteTitle){
+    if (!noteTitle) {
         noteTitle = "Untitled";
     };
 
@@ -68,6 +68,8 @@ document.querySelector(".save-button").addEventListener("click", () => {
         let newId = generateRandomId();
         let newNote = { title: noteTitle, description: noteDescription, id: newId };
         saveToStorage(newNote);
+        mode = "view";
+        currentNoteId = newId;
         renderNotes();
         renderButtons();
     };
