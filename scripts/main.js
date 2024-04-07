@@ -18,15 +18,21 @@ function generateRandomId() {
 
 // Getting Date
 function getDate() {
-  var date = new Date();
+  var currentDate = new Date();
+ 
+  var day = currentDate.getDate();
+  var month = currentDate.getMonth() + 1; 
+  var year = currentDate.getFullYear();
+ 
+  var hour = currentDate.getHours();
+  var minute = currentDate.getMinutes();
+ 
+  hour = hour < 10 ? '0' + hour : hour;
+  minute = minute < 10 ? '0' + minute : minute;
 
-  var day = date.getDate();
-  var month = date.getMonth() + 1;
-  var year = date.getFullYear();
+  var formattedDateTime = `${day}/${month}/${year} - ${hour}:${minute}`;
 
-  var currentDate = `${day}/${month}/${year}`;
-
-  return currentDate;
+  return formattedDateTime;
 };
 
 // Rendering Notes
