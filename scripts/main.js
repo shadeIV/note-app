@@ -53,7 +53,7 @@ function renderNotes() {
 
         notesDiv.innerHTML = notesHTML;
     }
-    else if (storage.length === 0){
+    else if (storage.length === 0) {
         notesDiv.innerHTML = `<p class="null-p">There are no notes...</p>`
     };
 
@@ -180,22 +180,28 @@ document.querySelector(".search-input").addEventListener("keyup", () => {
             };
         });
 
-        let notesHTML = ""; // Null
+        if (filteredNotes.length != 0) {
+            let notesHTML = ""; // Null
 
-        filteredNotes.forEach((note) => {
-            notesHTML += `
+            filteredNotes.forEach((note) => {
+                notesHTML += `
             <button data-note-id="${note.id}" class="note-item">
                 <p class="note-item-name">${note.title}</p>
             </button> 
         `;
-        });
+            });
 
-        const notesDiv = window.top.document.querySelector(".notes-section");
-        notesDiv.innerHTML = notesHTML;
+            const notesDiv = window.top.document.querySelector(".notes-section");
+            notesDiv.innerHTML = notesHTML;
 
-        renderButtons();
+            renderButtons();
+        }
+        else if (filteredNotes.length === 0) {
+            const notesDiv = window.top.document.querySelector(".notes-section");
+            notesDiv.innerHTML = `<p class="null-p">"${searchKey}" not found</p>`;
+        };
     }
-    else { renderNotes(); renderButtons(); }
+    else { renderNotes(); renderButtons(); };
 
 });
 
