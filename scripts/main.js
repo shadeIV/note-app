@@ -35,30 +35,6 @@ function getDate() {
     return formattedDateTime;
 };
 
-// Rendering Notes
-function renderNotes() {
-    const notesDiv = window.top.document.querySelector(".notes-section");
-    let notesHTML = ""; //Null
-
-    getStorage();
-
-    if (storage.length != 0) {
-        storage.forEach((note) => {
-            notesHTML += `
-        <button data-note-id="${note.id}" class="note-item">
-            <p class="note-item-name">${note.title}</p>
-        </button> 
-        `;
-        });
-
-        notesDiv.innerHTML = notesHTML;
-    }
-    else if (storage.length === 0) {
-        notesDiv.innerHTML = `<p class="null-p">There are no notes...</p>`
-    };
-
-};
-
 // Create Button
 document.querySelector(".menu-create-button").addEventListener("click", () => {
     document.title = "Note App | Create Note";
@@ -125,10 +101,10 @@ document.querySelector(".delete-button").addEventListener("click", () => {
                 document.title = "Note App | Create Note"
                 currentNoteId = "";
                 mode = "create";
-                document.querySelector(".search-input").value = "";
                 document.querySelector(".title-input").value = "";
                 document.querySelector(".description-input").value = "";
                 document.querySelector(".date-p").innerHTML = getDate();
+                renderNotes();
             };
         });
     }
@@ -165,9 +141,8 @@ function renderButtons() {
     });
 };
 
-// Search Box
-document.querySelector(".search-input").addEventListener("keyup", () => {
-
+// Rendering Notes
+function renderNotes() {
     if (document.querySelector(".search-input").value != "") {
         let searchKey = document.querySelector(".search-input").value.toLowerCase();
 
@@ -201,8 +176,37 @@ document.querySelector(".search-input").addEventListener("keyup", () => {
             notesDiv.innerHTML = `<p class="null-p">"${searchKey}" not found</p>`;
         };
     }
-    else { renderNotes(); renderButtons(); };
+    else {
 
+        const notesDiv = window.top.document.querySelector(".notes-section");
+        let notesHTML = ""; //Null
+
+        getStorage();
+
+        if (storage.length != 0) {
+            storage.forEach((note) => {
+                notesHTML += `
+                <button data-note-id="${note.id}" class="note-item">
+                    <p class="note-item-name">${note.title}</p>
+                </button> 
+                `;
+            });
+
+            notesDiv.innerHTML = notesHTML;
+        }
+        else if (storage.length === 0) {
+            notesDiv.innerHTML = `<p class="null-p">There are no notes...</p>`
+        };
+
+        renderButtons();
+        
+    };
+
+};
+
+// Search Box
+document.querySelector(".search-input").addEventListener("keyup", () => {
+    renderNotes();
 });
 
 // Inputs on Change
