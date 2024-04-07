@@ -18,21 +18,21 @@ function generateRandomId() {
 
 // Getting Date
 function getDate() {
-  var currentDate = new Date();
- 
-  var day = currentDate.getDate();
-  var month = currentDate.getMonth() + 1; 
-  var year = currentDate.getFullYear();
- 
-  var hour = currentDate.getHours();
-  var minute = currentDate.getMinutes();
- 
-  hour = hour < 10 ? '0' + hour : hour;
-  minute = minute < 10 ? '0' + minute : minute;
+    var currentDate = new Date();
 
-  var formattedDateTime = `${day}/${month}/${year} - ${hour}:${minute}`;
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1;
+    var year = currentDate.getFullYear();
 
-  return formattedDateTime;
+    var hour = currentDate.getHours();
+    var minute = currentDate.getMinutes();
+
+    hour = hour < 10 ? '0' + hour : hour;
+    minute = minute < 10 ? '0' + minute : minute;
+
+    var formattedDateTime = `${day}/${month}/${year} - ${hour}:${minute}`;
+
+    return formattedDateTime;
 };
 
 // Rendering Notes
@@ -65,12 +65,12 @@ document.querySelector(".menu-create-button").addEventListener("click", () => {
 
 // Save Button
 document.querySelector(".save-button").addEventListener("click", () => {
-    
+
     let noteTitle = document.querySelector(".title-input").value;
     let noteDescription = document.querySelector(".description-input").value;
-    
+
     if (noteTitle || noteDescription) {
-        
+
         let date = getDate();
 
         document.title = "Note App | Saved";
@@ -100,7 +100,7 @@ document.querySelector(".save-button").addEventListener("click", () => {
             renderNotes();
             renderButtons();
         };
-        
+
     };
 });
 
@@ -149,7 +149,7 @@ function renderButtons() {
                     document.title = "Note App | View Note";
                     document.querySelector(".title-input").value = note.title;
                     document.querySelector(".description-input").value = note.description;
-                    document.querySelector(".date-p").innerHTML = note.date; 
+                    document.querySelector(".date-p").innerHTML = note.date;
                     currentNoteId = note.id;
                 };
             });
@@ -157,6 +157,40 @@ function renderButtons() {
         });
     });
 };
+
+// Search Box
+document.querySelector(".search-input").addEventListener("keyup", () => {
+
+    if (document.querySelector(".search-input").value != "") {
+        let searchKey = document.querySelector(".search-input").value.toLowerCase();
+
+        let filteredNotes = [];
+
+        getStorage();
+        storage.forEach((note) => {
+            if (note.title.toLowerCase().indexOf(`${searchKey}`) != -1) {
+                filteredNotes.push(note);
+            };
+        });
+
+        let notesHTML = ""; // Null
+
+        filteredNotes.forEach((note) => {
+            notesHTML += `
+            <button data-note-id="${note.id}" class="note-item">
+                <p class="note-item-name">${note.title}</p>
+            </button> 
+        `;
+        });
+
+        const notesDiv = window.top.document.querySelector(".notes-section");
+        notesDiv.innerHTML = notesHTML;
+
+        renderButtons();
+    }
+    else { renderNotes(); renderButtons(); }
+
+});
 
 // Inputs on Change
 document.querySelector(".title-input").addEventListener("keydown", () => {
