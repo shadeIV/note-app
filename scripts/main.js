@@ -42,15 +42,21 @@ function renderNotes() {
 
     getStorage();
 
-    storage.forEach((note) => {
-        notesHTML += `
+    if (storage.length != 0) {
+        storage.forEach((note) => {
+            notesHTML += `
         <button data-note-id="${note.id}" class="note-item">
             <p class="note-item-name">${note.title}</p>
         </button> 
         `;
-    });
+        });
 
-    notesDiv.innerHTML = notesHTML;
+        notesDiv.innerHTML = notesHTML;
+    }
+    else if (storage.length === 0){
+        notesDiv.innerHTML = `<p class="null-p">There are no notes...</p>`
+    };
+
 };
 
 // Create Button
@@ -119,6 +125,7 @@ document.querySelector(".delete-button").addEventListener("click", () => {
                 document.title = "Note App | Create Note"
                 currentNoteId = "";
                 mode = "create";
+                document.querySelector(".search-input").value = "";
                 document.querySelector(".title-input").value = "";
                 document.querySelector(".description-input").value = "";
                 document.querySelector(".date-p").innerHTML = getDate();

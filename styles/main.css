@@ -100,6 +100,11 @@ body {
     background: #202020;
 }
 
+.null-p{
+    font-size: 15px;
+    color: rgb(161, 161, 161);
+}
+
 .note-item {
     display: flex;
     flex-direction: row;
