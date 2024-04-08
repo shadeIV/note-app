@@ -1,39 +1,12 @@
 // Storage Functions
 import { storage, getStorage, saveToStorage } from "./storage.js";
 
+// Extra Functions
+import { generateRandomId, getDate } from "./extra.js";
+
 // Varibles
 let mode = "create";
 let currentNoteId = "";
-
-
-// Generating Random Id
-function generateRandomId() {
-    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let id = '';
-    for (let i = 0; i < 10; i++) {
-        id += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-    return id;
-};
-
-// Getting Date
-function getDate() {
-    var currentDate = new Date();
-
-    var day = currentDate.getDate();
-    var month = currentDate.getMonth() + 1;
-    var year = currentDate.getFullYear();
-
-    var hour = currentDate.getHours();
-    var minute = currentDate.getMinutes();
-
-    hour = hour < 10 ? '0' + hour : hour;
-    minute = minute < 10 ? '0' + minute : minute;
-
-    var formattedDateTime = `${day}/${month}/${year} - ${hour}:${minute}`;
-
-    return formattedDateTime;
-};
 
 // Create Button
 document.querySelector(".menu-create-button").addEventListener("click", () => {
@@ -199,7 +172,7 @@ function renderNotes() {
         };
 
         renderButtons();
-        
+
     };
 
 };
