@@ -1,28 +1,36 @@
 # Note App
 
-Basic note app made with html, css, javascript, node.js and electron.js for dekstop using local storage.
+This is a basic note-taking application built with HTML, CSS, JavaScript, Node.js, and Electron.js for desktop usage, utilizing local storage.
 
-# Installation
+## Installation
 
-Make sure that you have node.js and npm installed
+Before getting started, ensure you have Node.js and npm installed on your system.
 
-To install the project and use it, follow these steps.
+Follow these steps to install and use the project:
 
-- Clone the repository
-```
-git clone https://github.com/shadeIV/note-app.git
-```
+1. Clone the repository:
 
-- Install the NPM packages
-```
-npm install
-```
+    ```bash
+    git clone https://github.com/shadeIV/note-app.git
+    ```
 
-- To start the app
-```
-npm start
-```
+2. Install the required NPM packages:
 
-# Usage
+    ```bash
+    npm install
+    ```
 
-It's so basic to use. You can take notes and change them whenever you want. Just type npm start to command line and that's all.
+3. To start the application:
+
+    ```bash
+    npm start
+    ```
+
+## Usage
+
+Using the app is straightforward:
+
+- Take notes and edit them as needed.
+- Simply type `npm start` in the command line to launch the app.
+
+Feel free to explore and enhance your note-taking experience with this simple yet efficient application.
