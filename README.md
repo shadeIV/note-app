@@ -34,3 +34,7 @@ Using the app is straightforward:
 - Simply type `npm start` in the command line to launch the app.
 
 Feel free to explore and enhance your note-taking experience with this simple yet efficient application.
+
+## Screenshot
+
+![Note App Screenshot](app.png)
